@@ -1,0 +1,21 @@
+#!/usr/bin/expect
+
+set timeout 300
+
+set MODULUS ../bin/modulus
+set USERNAME brandon@modulus.io
+set PASSWORD qwerty
+
+spawn $MODULUS login
+
+expect {
+  "email:" {send "$USERNAME\r"}
+}
+
+expect {
+  "password:" {send "$PASSWORD\r"}
+}
+
+expect {
+  "brandon@modulus.io" {send "\r"}
+}

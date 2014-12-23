@@ -1,0 +1,14 @@
+{
+  "name": "basicincome.co",
+  "version": "0.0.1",
+  "description": "a p2p-basic income network.",
+  "main": "app.js",
+  "repository": "",
+  "author": "Johan Nygren <emailsareobsolete@gmail.com>",
+  "dependencies": {
+    "nodejs-websocket": "latest",
+    "mongojs": "latest",
+    "ripple-lib": "latest"
+
+  }
+}
