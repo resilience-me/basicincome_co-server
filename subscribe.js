@@ -57,32 +57,13 @@ var COLLECTION = db.collection(data.transaction.Destination);
 
 // filter out transactions
 
-// what BitCoin gateways should the app work for ??
-var bitcoin_gateways = ["rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B", "rMwjYedjc7qqtKYVLiAccJSmCwih4LnE2q", "rMm3rCYgxAmY1E3N4iVeuiizCCHmK4wxaK"]
-//                              B I T S T A M P                     btc2ripple                               fakeBTCgateway              
-console.log("yooo")
-console.log(data.transaction.Amount.issuer)
-console.log(bitcoin_gateways.indexOf(data.transaction.Amount.issuer))
-
-console.log(data.mmeta._affectedAccounts)
 
 
 
 
 
-
-
-if(data.transaction.Amount.currency === "BTC"){
-    
-    for(var i=0;i<bitcoin_gateways.length;i++){
-    console.log(data.mmeta._affectedAccounts.indexOf(bitcoin_gateways[i]))
-
-        if(data.mmeta._affectedAccounts.indexOf(bitcoin_gateways[i])>-1){
+if(data.transaction.Amount.currency === "RES"){
                 transaction()
-                console.log(i)
-                break
-        }
-    }
 
 }
 
@@ -90,16 +71,36 @@ if(data.transaction.Amount.currency === "BTC"){
 function transaction(){
         
     //get taxRate
-    COLLECTION.findOne({type: "wallet", currency: data.transaction.Amount.currency}, function(err,doc){
+     db.collection(data.transaction.Destination).findOne({type: "contract", currency: data.transaction.Amount.currency}, function(err,doc){
             var taxRate;
 
-            if(doc === null){taxRate = 0}
-            else taxRate = doc.taxRate
+            if(doc === null)consumption_outside_network()
+            else{
+            taxRate = doc.taxRate
             console.log(taxRate)
             update_collection(taxRate)
+            } 
     }) 
    
 }  
+         
+function consumption_outside_network(){
+    
+    // upsert safety net
+    db.collection(data.transaction.Account).findAndModify({
+        query: {type: "consumption_outside_network", currency: data.transaction.Amount.currency}, 
+        update:{$inc:{total_amount:Number(data.transaction.Amount.value)}}, 
+        upsert: true,
+        new: true
+        
+    }, 
+        function(err,doc){
+            console.log(doc)
+        })    
+    
+}
+
+
               
     function update_collection(taxRate){    
         
@@ -107,6 +108,19 @@ function transaction(){
     // upsert safety net
     db.collection(data.transaction.Account).findAndModify({
         query: {type: "safety_net", currency: data.transaction.Amount.currency, taxRate: taxRate}, 
+        update:{$inc:{total_pathway:Number(data.transaction.Amount.value)}}, 
+        upsert: true,
+        new: true
+        
+    }, 
+        function(err,doc){
+            console.log(doc)
+        })
+        
+        
+    // upsert dividend_pathways
+    db.collection(data.transaction.Destination).findAndModify({
+        query: {type: "dividend_pathway", currency: data.transaction.Amount.currency, taxRate: taxRate}, 
         update:{$inc:{total_pathway:Number(data.transaction.Amount.value)}}, 
         upsert: true,
         new: true
