@@ -11,16 +11,10 @@ var server = ws.createServer(function (conn) {
 
         var BLOB = JSON.parse(str)
         var ACCOUNT_ID = BLOB[0].account_id
-        var WALLET = BLOB[1]
-        var COLLECTION = db.collection(ACCOUNT_ID);
 
-
- [{"account_id":"rLaKjMvLbrAJwnH4VpawQ6ot9epZqJmbfQ"},[{"currency":"BTC","taxRate":0.02}]]
-
-
-
-        if(str.indexOf("account_id")!==-1){update_taxRates_and_swarm_redistribution()}
-        function update_taxRates_and_swarm_redistribution(){
+        // the websocket recieves both "declare_tax" and "payments_sent", this filters out "declare_tax":
+        if(str.indexOf("account_id")!==-1){swarm_redistribution()}
+        function swarm_redistribution(){
         
         console.log("Received: "+str);
 

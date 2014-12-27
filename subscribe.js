@@ -86,7 +86,7 @@ function transaction(){
          
 function consumption_outside_network(){
     
-    // upsert safety net
+    // upsert extra-network consumption
     db.collection(data.transaction.Account).findAndModify({
         query: {type: "consumption_outside_network", currency: data.transaction.Amount.currency}, 
         update:{$inc:{total_amount:Number(data.transaction.Amount.value)}}, 
@@ -120,7 +120,7 @@ function consumption_outside_network(){
         
     // upsert dividend_pathways
     db.collection(data.transaction.Destination).findAndModify({
-        query: {type: "dividend_pathway", currency: data.transaction.Amount.currency, taxRate: taxRate}, 
+        query: {type: "dividend_pathway", account: data.transaction.Account, currency: data.transaction.Amount.currency, taxRate: taxRate}, 
         update:{$inc:{total_pathway:Number(data.transaction.Amount.value)}}, 
         upsert: true,
         new: true
