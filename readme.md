@@ -30,7 +30,20 @@ creates the mirror network
 
 ### dividend_algorithm.js 
 
-does everything else. the script is not finished in this repo
+there´s an infinite amount of possible dividend algorithms.
+
+<a href="http://ucoin.io">http://ucoin.io</a> uses one alternative, <a href="http://bitshares.org">http://bitshares.org</a> another, <a href="http://rippledividend.com">http://rippledividend.com</a> another,
+
+and I´ve got a couple of differnet designs for different stages of my #DApps evolution.
+
+For the first version, I´m experimenting with this design:
+
+
+An algorithm minimizes the number of dividend-transactions across the ripple network. If you declare tax, like 200 RES, the algorithm will distribute that across as few accounts as possible, whilst maintaining an equal distribution of dividends.
+
+You could... do it in an infinite number of other ways.
+
+
 
 
 
