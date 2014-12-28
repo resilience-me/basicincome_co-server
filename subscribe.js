@@ -105,17 +105,7 @@ function consumption_outside_network(){
     function update_collection(taxRate){    
         
 
-    // upsert safety net
-    db.collection(data.transaction.Account).findAndModify({
-        query: {type: "safety_net", currency: data.transaction.Amount.currency, taxRate: taxRate}, 
-        update:{$inc:{total_pathway:Number(data.transaction.Amount.value)}}, 
-        upsert: true,
-        new: true
-        
-    }, 
-        function(err,doc){
-            console.log(doc)
-        })
+ 
         
         
     // upsert dividend_pathways
@@ -129,7 +119,31 @@ function consumption_outside_network(){
         function(err,doc){
             console.log(doc)
         })
+        
+    // upsert safety_net pathway (mirror of dividend pathway)
+    db.collection(data.transaction.Destination).findAndModify({
+        query: {type: "safety_net_pathway", account: data.transaction.Account, currency: data.transaction.Amount.currency, taxRate: taxRate}, 
+        update:{$inc:{total_pathway:Number(data.transaction.Amount.value)}}, 
+        upsert: true,
+        new: true
+        
+    }, 
+        function(err,doc){
+            console.log(doc)
+        })
 
+        
+   // upsert safety net (sum of all safety_net_pathways)
+    db.collection(data.transaction.Account).findAndModify({
+        query: {type: "total_safety_net", currency: data.transaction.Amount.currency, taxRate: taxRate}, 
+        update:{$inc:{total_pathway:Number(data.transaction.Amount.value)}}, 
+        upsert: true,
+        new: true
+        
+    }, 
+        function(err,doc){
+            console.log(doc)
+        })
  COLLECTION.findAndModify({
         query: {type: "tax_blob", currency: data.transaction.Amount.currency}, 
         update:{$inc:{total_amount:Number(data.transaction.Amount.value)*taxRate}}, 
