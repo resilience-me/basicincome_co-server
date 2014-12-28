@@ -45,9 +45,9 @@ You could... do it in an infinite number of other ways.
 
 
 
-## Peer-to-Peer Dividends
+#### Peer-to-Peer Dividends
 
-<a href="http://graph.basicincome.co/">http://graph.basicincome.co/</a> shows you what p2p-dividend-pathways look like. Each account creates a unique safety net based on it´s financial unfolding. He will then recieve dividends from a network that extends beyond his safety net, but the safety net is his connection to the network. In other words, the LIFE you consume as you unfold becomes your connection to the network.
+<a href="http://graph.basicincome.co/">http://graph.basicincome.co/</a> shows you what p2p-dividend-pathways look like. Each account creates a unique safety net based on it´s financial unfolding. He will then recieve dividends from a network that extends beyond his safety net, but the safety net is his connection to the network. In other words, the LIFE you consume as you unfold becomes your connection to the network. In other words, your free will, your nervous system, is what shapes your social safety net, your network as a force of geology.
 
 
 <b>How to boot up:<b>
