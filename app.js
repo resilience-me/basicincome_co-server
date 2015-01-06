@@ -19,8 +19,10 @@ basicincome_co.connect(db, dividend_algorithm)
 var algorithm = require("./dividend_algorithm")
 
 function dividend_algorithm(account_id){
+    console.log("running dividend algorithm for: "+account_id)
     algorithm.API(db, account_id, send_client)
 function send_client(payment){
+    console.log("sending these payments: " +payment)
     basicincome_co.send_client(payment, account_id)
 }
 }

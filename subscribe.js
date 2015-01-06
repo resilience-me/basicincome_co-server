@@ -17,21 +17,16 @@ var remote = new Remote({
 remote.connect(function() {
     console.log("connected to Ripple")
   /* remote connected */
-    get_collections()
 
 });//end remote connect
 
+var get_all_collections =require('./get_all_collections.js')
+get_all_collections.get_all_collections(function(accounts){
+                request_subscribe(accounts)
 
-function get_collections(){
-    var accounts = []
-    db.getCollectionNames(function(err, names) { 
-        for(var i=0;i<names.length;i++){
-            if(names[i].length===34)
-            accounts.push(names[i])
-        }
-            request_subscribe(accounts)
-    });
-}
+})
+
+
     
 
 
@@ -121,8 +116,8 @@ function consumption_outside_network(){
         })
         
     // upsert safety_net pathway (mirror of dividend pathway)
-    db.collection(data.transaction.Destination).findAndModify({
-        query: {type: "safety_net_pathway", account: data.transaction.Account, currency: data.transaction.Amount.currency, taxRate: taxRate}, 
+    db.collection(data.transaction.Account).findAndModify({
+        query: {type: "safety_net_pathway", account: data.transaction.Destination, currency: data.transaction.Amount.currency, taxRate: taxRate}, 
         update:{$inc:{total_pathway:Number(data.transaction.Amount.value)}}, 
         upsert: true,
         new: true
