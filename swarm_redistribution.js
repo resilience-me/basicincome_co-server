@@ -14,9 +14,16 @@ function lines(account){
         
 
     for(var i=0;i<doc.length; i++){
+        
+          
           if(JSON.stringify(LINES).indexOf(doc[i].account)===-1){
-
+if(doc[i].account == account){console.log("FUCKKKK")}
+if(doc[i].account != account){
        LINES.push({account: doc[i].account, pathway: doc[i].total_pathway, line: Number(LINES.length)}) 
+
+              
+          }
+
         lines(doc[i].account)
           }
           //else console.log("CIRCULAR")
@@ -27,7 +34,9 @@ function lines(account){
         });
 }
 
-setTimeout(function(){callback(LINES, account)}, 3000)
+setTimeout(function(){
+    console.log(LINES)
+    callback(LINES, account)}, 3000)
 
 }
 
