@@ -16,10 +16,12 @@ console.log("1.23456789 BTC to Satoshi: ", blocktrail.toSatoshi(1.23456789));
 
 var client = blocktrail.BlocktrailSDK({apiKey: "724d383f0403bcdc77994332907acf75ff22f635", apiSecret: "52cc8d906c1b37f425fec97e1345a531f7be7037", network: "BTC", testnet: false});
 
+client.setupWebhook('https://user:pass@example.com/',
+    function(err, result) {/*...*/});
+    
 
 
 
-client.subscribeAddressTransactions('1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp', 6, function(err, result) {console.log(result)});
 
 
 
@@ -36,19 +38,18 @@ get_all_collections.get_all_collections(function(accounts){
 get_all_collections()
 
 
-
-
-
-function request_subscribe(accounts){
+function request_subsribe(accounts){
     
-// connect to ripple-lib 
+    // someone fix this and connect Bitcoin like I've connected Ripple
+for(var i=0;i<accounts.length;i++){
+    client.subscribeAddressTransactions(accounts[i], 6, function(err, result) {console.log(result)});
+    
+    
+}
+
+blablabla.on('transaction', function(data){
 
 
-var req = remote.request_subscribe();
-req.message.accounts = accounts
-console.log(req.message.accounts)
-req.request();
-remote.on('transaction', function(data){
  
 
 // filter out payement transactions
@@ -128,7 +129,7 @@ function transaction(){
             
             var connect_transaction = require('../connect_transaction.js')
 
-
+            // connect the transaction to the resilience network
             connect_transaction.connect_transaction(data.transaction.Account, data.transaction.Destination, data.transaction.Amount.currency, data.transaction.Amount.value, taxRate)
             
             
