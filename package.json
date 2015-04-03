@@ -15,7 +15,8 @@
     "nodejs-websocket": "latest",
     "mongojs": "latest",
     "ripple-lib": "latest",
-    "async": "latest"
+    "async": "latest",
+    "blocktrail-sdk": "latest"
 
   }
 }

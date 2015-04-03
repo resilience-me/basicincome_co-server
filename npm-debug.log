@@ -1,0 +1,137 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/ubuntu/.nvm/v0.10.33/bin/node',
+1 verbose cli   '/home/ubuntu/.nvm/v0.10.33/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'blocktrail-sdk',
+1 verbose cli   '1.2.1' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'blocktrail-sdk', null ]
+6 verbose cache add name=undefined spec="blocktrail-sdk" args=["blocktrail-sdk",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'blocktrail-sdk',
+7 verbose parsed url   path: 'blocktrail-sdk',
+7 verbose parsed url   href: 'blocktrail-sdk' }
+8 verbose cache add [ '1.2.1', null ]
+9 verbose cache add name=undefined spec="1.2.1" args=["1.2.1",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: '1.2.1',
+10 verbose parsed url   path: '1.2.1',
+10 verbose parsed url   href: '1.2.1' }
+11 silly lockFile 3f3c4eb7-blocktrail-sdk blocktrail-sdk
+12 verbose lock blocktrail-sdk /home/ubuntu/.npm/3f3c4eb7-blocktrail-sdk.lock
+13 silly lockFile 94dcef06-1-2-1 1.2.1
+14 verbose lock 1.2.1 /home/ubuntu/.npm/94dcef06-1-2-1.lock
+15 silly lockFile 3f3c4eb7-blocktrail-sdk blocktrail-sdk
+16 silly lockFile 3f3c4eb7-blocktrail-sdk blocktrail-sdk
+17 silly lockFile 94dcef06-1-2-1 1.2.1
+18 silly lockFile 94dcef06-1-2-1 1.2.1
+19 verbose addNamed [ 'blocktrail-sdk', '' ]
+20 verbose addNamed [ null, '*' ]
+21 silly lockFile 5f542bcf-blocktrail-sdk blocktrail-sdk@
+22 verbose lock blocktrail-sdk@ /home/ubuntu/.npm/5f542bcf-blocktrail-sdk.lock
+23 verbose addNamed [ '1.2.1', '' ]
+24 verbose addNamed [ null, '*' ]
+25 silly lockFile af8a6499-1-2-1 1.2.1@
+26 verbose lock 1.2.1@ /home/ubuntu/.npm/af8a6499-1-2-1.lock
+27 silly addNameRange { name: 'blocktrail-sdk', range: '*', hasData: false }
+28 silly addNameRange { name: '1.2.1', range: '*', hasData: false }
+29 verbose request where is /1.2.1
+30 verbose request registry https://registry.npmjs.org/
+31 verbose request id cf5e4b3939e82afe
+32 verbose url raw /1.2.1
+33 verbose url resolving [ 'https://registry.npmjs.org/', './1.2.1' ]
+34 verbose url resolved https://registry.npmjs.org/1.2.1
+35 verbose request where is https://registry.npmjs.org/1.2.1
+36 info trying registry request attempt 1 at 21:57:42
+37 http GET https://registry.npmjs.org/1.2.1
+38 verbose registry.get https://registry.npmjs.org/blocktrail-sdk not expired, no request
+39 silly addNameRange number 2 { name: 'blocktrail-sdk', range: '*', hasData: true }
+40 silly addNameRange versions [ 'blocktrail-sdk',
+40 silly addNameRange   [ '1.0.1',
+40 silly addNameRange     '1.1.0-beta4',
+40 silly addNameRange     '1.0.3',
+40 silly addNameRange     '1.1.0',
+40 silly addNameRange     '1.1.1',
+40 silly addNameRange     '1.1.4',
+40 silly addNameRange     '1.2.0',
+40 silly addNameRange     '1.2.1',
+40 silly addNameRange     '1.2.2',
+40 silly addNameRange     '1.2.3',
+40 silly addNameRange     '1.2.4',
+40 silly addNameRange     '1.2.5',
+40 silly addNameRange     '1.2.6',
+40 silly addNameRange     '1.3.0-0',
+40 silly addNameRange     '1.3.0-1' ] ]
+41 verbose addNamed [ 'blocktrail-sdk', '1.2.6' ]
+42 verbose addNamed [ '1.2.6', '1.2.6' ]
+43 silly lockFile 364a756c-blocktrail-sdk-1-2-6 blocktrail-sdk@1.2.6
+44 verbose lock blocktrail-sdk@1.2.6 /home/ubuntu/.npm/364a756c-blocktrail-sdk-1-2-6.lock
+45 silly lockFile 364a756c-blocktrail-sdk-1-2-6 blocktrail-sdk@1.2.6
+46 silly lockFile 364a756c-blocktrail-sdk-1-2-6 blocktrail-sdk@1.2.6
+47 silly lockFile 5f542bcf-blocktrail-sdk blocktrail-sdk@
+48 silly lockFile 5f542bcf-blocktrail-sdk blocktrail-sdk@
+49 http 404 https://registry.npmjs.org/1.2.1
+50 verbose headers { date: 'Fri, 03 Apr 2015 21:57:42 GMT',
+50 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+50 verbose headers   'content-type': 'application/json',
+50 verbose headers   'cache-control': 'max-age=0',
+50 verbose headers   'content-length': '51',
+50 verbose headers   'accept-ranges': 'bytes',
+50 verbose headers   via: '1.1 varnish',
+50 verbose headers   age: '0',
+50 verbose headers   'x-served-by': 'cache-lcy1134-LCY',
+50 verbose headers   'x-cache': 'MISS',
+50 verbose headers   'x-cache-hits': '0',
+50 verbose headers   'x-timer': 'S1428098262.481529,VS0,VE89',
+50 verbose headers   'keep-alive': 'timeout=10, max=50',
+50 verbose headers   connection: 'Keep-Alive' }
+51 silly registry.get cb [ 404,
+51 silly registry.get   { date: 'Fri, 03 Apr 2015 21:57:42 GMT',
+51 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+51 silly registry.get     'content-type': 'application/json',
+51 silly registry.get     'cache-control': 'max-age=0',
+51 silly registry.get     'content-length': '51',
+51 silly registry.get     'accept-ranges': 'bytes',
+51 silly registry.get     via: '1.1 varnish',
+51 silly registry.get     age: '0',
+51 silly registry.get     'x-served-by': 'cache-lcy1134-LCY',
+51 silly registry.get     'x-cache': 'MISS',
+51 silly registry.get     'x-cache-hits': '0',
+51 silly registry.get     'x-timer': 'S1428098262.481529,VS0,VE89',
+51 silly registry.get     'keep-alive': 'timeout=10, max=50',
+51 silly registry.get     connection: 'Keep-Alive' } ]
+52 silly lockFile af8a6499-1-2-1 1.2.1@
+53 silly lockFile af8a6499-1-2-1 1.2.1@
+54 error 404 404 Not Found: 1.2.1
+54 error 404
+54 error 404 '1.2.1' is not in the npm registry.
+54 error 404 You should bug the author to publish it
+54 error 404 It was specified as a dependency of 'basicincome.co'
+54 error 404
+54 error 404 Note that you can also install from a
+54 error 404 tarball, folder, or http url, or git url.
+55 error System Linux 3.14.13-c9
+56 error command "/home/ubuntu/.nvm/v0.10.33/bin/node" "/home/ubuntu/.nvm/v0.10.33/bin/npm" "install" "blocktrail-sdk" "1.2.1"
+57 error cwd /home/ubuntu/workspace
+58 error node -v v0.10.33
+59 error npm -v 1.4.28
+60 error code E404
+61 verbose exit [ 1, true ]

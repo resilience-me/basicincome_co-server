@@ -1,15 +1,31 @@
 
 /*loading mongodb*/    
 var mongojs = require("mongojs")
-var db = mongojs("mongodb://guest:guest@ds049150.mongolab.com:49150/basicincome_co");   
+var db_ripple = mongojs("mongodb://guest:guest@ds049150.mongolab.com:49150/basicincome_co");   
+
+var db_bitcoin = mongojs("");   
+
+
+
+//add financial platforms here --->
+
+/*
+add as many as you want financial platforms as you want, 
+right now Bitcoin and Ripple
+*/
+
+
+var connect_to_ripple = require('./financial_platforms/connect_to_ripple.js')
+connect_to_ripple.connect(db_ripple)
+
+//var connect_to_bitcoin = require('./financial_platforms/connect_to_bitcoin.js')
+//connect_to_ripple.connect(db_bitcoin)
 
 
 
 
-var subscribe = require('./subscribe')
-subscribe.connect(db)
 
-
+//add client-interfaces
 
 var basicincome_co = require('./basicincome_co')
 basicincome_co.connect(db, dividend_algorithm)
