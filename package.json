@@ -12,11 +12,14 @@
 
 
   "dependencies": {
+    "express": "latest",
+    "body-parser":"latest",
     "nodejs-websocket": "latest",
     "mongojs": "latest",
     "ripple-lib": "latest",
     "async": "latest",
-    "blocktrail-sdk": "latest"
+    "blocktrail-sdk": "latest",
+    "querystring": "latest"
 
   }
 }

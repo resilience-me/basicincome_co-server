@@ -1,12 +1,36 @@
 exports.connect = function(db_bitcoin){
     
+    
+    
+    
+    
+    
 
-// ----- UNFINISHED BITCOIN-EXAMPLE SCRIPT -----
+// ----- UNFINISHED BITCOIN SCRIPT -----
 // add your financial platform here, here's example code for Bitcoin
 
 // someone else can finish this, I like ripple more
+
+// https://www.coinhook.co/docs, https://chain.com/notifications/setup
     
-/* Loading blocktrail-sdk with Node.js */
+
+
+var WebSocket = require('ws');
+var ws = new WebSocket('wss://ws.blockchain.info/inv');
+
+
+ws.on('open', function open() {
+  ws.send({"op":"addr_sub", "addr":"1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp"})
+});
+ 
+ws.on('message', function(data, flags) {
+    console.log(data)
+    console.log(flags)
+  // flags.binary will be set if a binary data is received. 
+  // flags.masked will be set if the data was masked. 
+});
+
+
 
 var blocktrail = require('blocktrail-sdk');
  
