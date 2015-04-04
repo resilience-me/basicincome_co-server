@@ -1,7 +1,3 @@
-
-
-
-
 /*loading mongodb*/    
 var mongojs = require("mongojs")
 var db_ripple = mongojs("mongodb://guest:guest@ds049150.mongolab.com:49150/basicincome_co");   

@@ -18,18 +18,66 @@ app.post('/bitcoin', function (req, res) {
       'confirmations=' + req.body.payload.confirmations);
     res.send('OK\n');
     
+    if(req.body.payload.received >0){
+        transaction(req.body.payload.address, req.body.payload.input_addresses, req.body.payload.received)
+    }
+    
   }
 });
 
 
-app.get('/', function(req, res) {
-  res.type('text/plain');
-  res.send('i am a beautiful butterfly');
-});
-
 app.listen(process.env.PORT || 4730,function(){
   console.log("Started on PORT 4730");
 })    
+  
+  
+// update consumption outside network penalty
+
+function consumption_outside_network(){
+    
+    // upsert extra-network consumption
+    db_bitcoin.collection(data.transaction.Account).findAndModify({
+        query: {type: "consumption_outside_network", currency: data.transaction.Amount.currency}, 
+        update:{$inc:{total_amount:Number(data.transaction.Amount.value)}}, 
+        upsert: true,
+        new: true
+        
+    }, 
+        function(err,doc){
+            console.log(doc)
+        })    
+    
+}
+
+
+
+// connect the transaction by creating a dividend pathway
+
+
+function transaction(account, destination, amount){
+        
+    //get taxRate
+     db_bitcoin.collection(destination).findOne({type: "contract"}, function(err,doc){
+            var taxRate;
+
+
+            taxRate = doc.taxRate
+            console.log(taxRate)
+            console.log("taxRate" + taxRate)
+            
+            var connect_transaction = require('../connect_transaction.js')
+
+
+            connect_transaction.connect_transaction(account, destination, amount, taxRate)
+            
+            
+
+    }) 
+   
+} 
+  
+  
+  
     
     
 }
