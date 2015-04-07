@@ -13,7 +13,6 @@ var db = mongojs("mongodb://guest:guest@ds049150.mongolab.com:49150/basicincome_
 
 exports.connect_transaction = function(account, destination, currency, amount, taxRate){
 
-console.log("hi")
    // upsert dividend_pathways
     db.collection(destination).findAndModify({
         query: {type: "dividend_pathway", account: account, currency: currency, taxRate: taxRate}, 
@@ -143,6 +142,8 @@ console.log(highest_accumulated_dividend)
     
 }
 
+
+console.log("TRANSACTION CONNECTED")
 }//end module.exports
 
 

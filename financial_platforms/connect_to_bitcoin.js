@@ -1,11 +1,5 @@
 exports.connect = function(db_bitcoin){
     
-    
-var express        =        require("express");
-var bodyParser     =        require("body-parser");
-var app            =        express();
-
-app.use(bodyParser.json());
 
 
 
@@ -26,9 +20,7 @@ app.post('/bitcoin', function (req, res) {
 });
 
 
-app.listen(process.env.PORT || 4730,function(){
-  console.log("Started on PORT 4730");
-})    
+
   
   
 // update consumption outside network penalty

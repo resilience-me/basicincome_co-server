@@ -1,0 +1,19 @@
+API
+
+
+
+$ curl http://basicincome.co/ripple/connect_transaction \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"account": "account", "destination": "destination", "currency": "currency", "amount": "amount", "taxRate": "taxRate"}'
+
+
+
+
+$ curl http://basicincome.co/bitcoin/connect_transaction \
+    -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"account": "account", "destination": "destination", "amount": "amount", "taxRate": "taxRate"}'
+    
+    
+    
